@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org/%22%3E">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Registro</title>
+        <link rel="stylesheet" th:href="@{/CSS/style.css}">
+        <link rel="stylesheet" th:href="@{/CSS/footer.css}">
+        <link rel="stylesheet" th:href="@{/CSS/header.css}">
+        <link rel="stylesheet" th:href="@{/CSS/cadastro.css}">
+         
+    </head>
+
+    <body class="container">
+
+        <header class="header">
+
+            <div class="box-header">
+                <img th:src="@{/imagens/Capgemini.png}">
+
+                <div class="menu">
+                    <a th:onclick="'location.href =\''+ @{/} + '\';'" class="menu-link">Home</a>
+                    <a th:onclick="'location.href =\''+ @{/relatorio} + '\';'" class="menu-link">Gerar Relatório</a>
+                </div>
+            </div>
+
+        </header>
+
+        <section class="container">
+
+            <div class="box-externo">
+
+                <div class="cabecalho cabecalho-set-1">Preencha os dados a seguir para cadastrar o seu anúncio:</div>
+
+                <div class="formulario">
+
+                    <form name="formularioCadastro" method="post" th:action="@{/cadastro/save}" th:object="${anuncio}">
+
+                        <div class="box-interno">
+                            <label for="nome" class="texto" >Nome do Anúncio</label>
+                            <input type="text" class="input" th:field="*{nomeAnuncio}" placeholder="Nome do anuncio" name="nome"/>
+                            <div class="alert" role="alert" th:if="${#fields.hasErrors('nomeAnuncio')}">
+                                <span th:errors="*{nomeAnuncio}"></span>
+                            </div>
+                        </div>
+
+                        <div class="box-interno">
+                            <label for="cliente" class="texto">Cliente</label>
+                            <input type="text" class="input " th:field="*{cliente}" placeholder="Cliente" name="cliente"/>
+                            <div class="alert"  role="alert" th:if="${#fields.hasErrors('cliente')}">
+                                <span th:errors="*{cliente}"></span>
+                            </div>
+                        </div>
+
+                        <div class="box-interno">
+                            <label for="dataInicio" class="texto">Data de Inicio</label>
+                            <input type="date" class="input " th:field="*{dataInicio}" placeholder="Data de inicio" name="dataInicio"/>
+                            <div class="alert"  role="alert" th:if="${#fields.hasErrors('dataInicio')}">
+                                <span th:errors="*{dataInicio}"></span>
+                            </div>
+                        </div>
+
+                        <div class="box-interno">
+                            <label for="dataFim" class="texto">Data de Término</label>
+                            <input type="date" class="input " th:field="*{dataFim}" placeholder="Data de Término" name="dataFim"/>
+                            <div class="alert"  role="alert" th:if="${#fields.hasErrors('dataFim')}">
+                                <span th:errors="*{dataFim}"></span>
+                            </div>
+                        </div>
+
+                        <div class="box-interno">
+                            <label for="investimento" class="texto">Investimento Diário</label>
+                            <input type="text" class="input " th:field="*{investimentoDiario}" placeholder="R$ Valor a ser investido" name="investimento"
+                                   onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57);"/>
+                            <div class="alert"  role="alert" th:if="${#fields.hasErrors('investimentoDiario')}">
+                                <span th:errors="*{investimentoDiario}"></span>
+                            </div>
+                        </div>
+
+                        <div class="alinhamento">
+                            <input type="submit" value="Cadastrar" class="botao box-link"/>
+                        </div>
+
+                    </form>
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+    
+            <main class="box-footer">
+
+                <img th:src="@{/imagens/Proway.png}">
+    
+            </main>
+    
+        </footer>
+
+    </body>
+
+</html>

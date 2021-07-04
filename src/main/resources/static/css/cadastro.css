@@ -1,0 +1,46 @@
+.cabecalho-set-1{
+    font-size: 25px;
+}
+
+.input{
+    border: none;
+    border-bottom: 2px solid #1a85ae;
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.texto{
+    color: #086185;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.box-interno{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.alinhamento{
+    display: flex;
+    justify-content: center;
+}
+
+.alert{
+    padding: 5px;
+    background-color: #ff6f3f; /* Red */
+    color: white;
+    border-radius: 7px;
+}

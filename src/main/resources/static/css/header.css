@@ -1,0 +1,38 @@
+.header{
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.box-header{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+.menu-link{
+    padding: 25px;
+    color: #1a85ae;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+}
+
+.menu-link:hover{
+    border-bottom: 5px solid #1a85ae;
+    }
+
+.swing:hover{
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}

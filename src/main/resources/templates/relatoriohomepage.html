@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/%22%3E">
+    <head>
+        <meta charset="UTF-8">
+        <title>Relatório</title>
+        <link rel="stylesheet" th:href="@{/CSS/style.css}">
+        <link rel="stylesheet" th:href="@{/CSS/footer.css}">
+        <link rel="stylesheet" th:href="@{/CSS/header.css}">
+        <link rel="stylesheet" th:href="@{/CSS/relatorio.css}">
+    </head>
+
+    <body class="container">
+
+        <header class="header">
+
+            <div class="box-header">
+                <img th:src="@{/imagens/Capgemini.png}">
+
+                <div class="menu">
+                    <a th:onclick="'location.href =\''+ @{/} + '\';'" class="menu-link">Home</a>
+                    <a th:onclick="'location.href =\''+ @{/cadastro} + '\';'" class="menu-link">Criar Anúncio</a>
+                </div>
+            </div>
+
+        </header>
+
+        <section class="contaniner">
+
+            <div class="box-externo">
+
+                <div class="cabecalho cabecalho-set-1">Relatório de anúncios</div>
+
+                <div class="formulario">
+
+                    <form method="get" th:object="${filtro}" th:action="@{/relatorio}">
+
+                        <div class="box-interno">
+                            <label for="cliente" class="texto">Cliente</label>
+                            <input type="text" class="input"  placeholder="Cliente" name="cliente" th:field="*{nomeCliente}">
+                        </div>
+
+                        <div class="box-interno">
+                            <label for="dataInicio" class="texto">Data de Inicio</label>
+                            <input type="date" class="input"  placeholder="Data de inicio" name="dataInicio" th:field="*{dataInicio}">
+                        </div>
+
+                        <div class="box-interno">
+                            <label for="dataFim" class="texto">Data de Término</label>
+                            <input type="date" class="input"  placeholder="Data de Término" name="dataFim" th:field="*{dataFim}">
+                        </div>
+
+                        <div class="alinhamento">
+                            <input type="submit" class="botao box-link" value="Pesquisar"></input>
+                        </div>
+
+                    </form>
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="relatorio">
+
+            <table>
+                <thead>
+                <tr>
+                    <th class="cabecalho">Anúncio</th>
+                    <th class="cabecalho">Cliente</th>
+                    <th class="cabecalho">Investimento Total</th>
+                    <th class="cabecalho">Visualizações</th>
+                    <th class="cabecalho">Cliques</th>
+                    <th class="cabecalho">Compartilhamentos</th>
+                    <th class="cabecalho">Data Inicio</th>
+                    <th class="cabecalho">Data Fim</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="anuncio : ${anunciosCadastrados}">
+                    <td><span th:text="${anuncio.nomeAnuncio}"></span></td>
+                    <td><span th:text="${anuncio.cliente}"></span></td>
+                    <td><span th:text="${#numbers.formatCurrency(anuncio.investimentoTotal())}"></span></td>
+                    <td><span th:text="${anuncio.visualizacoesTotais()}"></span></td>
+                    <td><span th:text="${anuncio.totalDeCliques()}"></span></td>
+                    <td><span th:text="${anuncio.totalCompartilhamentos()}"></span></td>
+                    <td><span th:text="${#temporals.format(anuncio.dataInicio, 'dd MMM yyyyy')}"></span></td>
+                    <td><span th:text="${#temporals.format(anuncio.dataFim, 'dd MMM yyyyy')}"></span></td>
+
+
+                </tr>
+                </tbody>
+
+            </table>
+
+        </section>
+
+    
+        <footer class="footer">
+    
+            <main class="box-footer">
+
+                <img th:src="@{/imagens/Proway.png}">
+    
+            </main>
+    
+        </footer>
+
+    </body>
+
+</html>

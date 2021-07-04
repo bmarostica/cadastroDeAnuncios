@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/%22%3E">
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <link rel="stylesheet" th:href="@{/CSS/style.css}">
+        <link rel="stylesheet" th:href="@{/CSS/footer.css}">
+        <link rel="stylesheet" th:href="@{/CSS/header.css}">
+
+    </head>
+
+    <body class="container">
+
+        <header class="header">
+
+            <div class="box-header">
+                <img th:src="@{/imagens/Capgemini.png}">
+            </div>
+
+        </header>
+
+        <section class="container">
+
+            <div class="box-externo">
+
+                <div class="cabecalho">
+                    Selecione uma dentre as opções abaixo:
+                </div>
+    
+                <div class="box">
+                    <button class="botao"><a th:onclick="'location.href =\''+ @{/cadastro} + '\';'" class="box-link">Criar Anúncio</a></button>
+                    <button class="botao "><a th:onclick="'location.href =\''+ @{/relatorio} + '\';'" class="box-link">Gerar Relatório</a></button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="footer">
+    
+            <main class="box-footer">
+    
+                <img th:src="@{/imagens/Proway.png}">
+    
+            </main>
+    
+        </footer>
+
+    </body>
+
+</html>

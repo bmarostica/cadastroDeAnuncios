@@ -1,0 +1,65 @@
+.input{
+    border: none;
+    border-bottom: 2px solid #1a85ae;
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.texto{
+    color: #086185;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.box-interno{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.alinhamento{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.box-externo{
+    justify-content: unset;
+}
+
+.relatorio{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.cabecalho{
+    font-size: 15px;
+
+}
+
+.box-externo{
+    height: 100%;
+}
+
+.cabecalho-set-1{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+td{
+    text-align: center;
+    font-weight: normal;
+}
